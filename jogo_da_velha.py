@@ -1,5 +1,5 @@
-from multiprocessing.sharedctypes import Value
 import os
+
 
 matriz = [[" "], [" "], [" "],
           [" "], [" "], [" "],
@@ -13,6 +13,8 @@ def pedir_usuario_jogadas():
     global jogadas
     global jogador
     global lista_coordenadas
+    
+    os.system('cls' if os.name == 'nt' else 'clear')
 
     if jogadas % 2 == 0:
         jogador = 1
@@ -45,8 +47,6 @@ def pedir_usuario_jogadas():
         pedir_usuario_jogadas()
 
     jogadas += 1
-    
-    os.system('cls' if os.name == 'nt' else 'clear')
 
     atualizar_matriz(linha_usuario, coluna_usuario, jogador)
 
@@ -80,8 +80,8 @@ def atualizar_matriz(linha, coluna, jogador):
     
     if verificar_vitoria_empate() == 0:
         return 0
-
-    pedir_usuario_jogadas()
+    else:
+        pedir_usuario_jogadas()
 
 
 def imprimir_jogo_velha():
