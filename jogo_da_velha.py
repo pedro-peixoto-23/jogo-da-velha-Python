@@ -82,6 +82,7 @@ def atualizar_matriz(linha, coluna, jogador):
         matriz[8][0] = X_ou_O
     
     if verificar_vitoria_empate() == 0:
+        reiniciar_game()
         return 0
     else:
         pedir_usuario_jogadas()
@@ -138,6 +139,7 @@ def verificar_vitoria_empate():
     elif " " not in (matriz[0][0], matriz[1][0], matriz[2][0], matriz[3][0], matriz[4][0], matriz[5][0], matriz[6][0], matriz[7][0], matriz[8][0]):
         imprimir_jogo_velha()
         print(f"\nDeu velha!")
+
         return 0
 
 
@@ -146,7 +148,6 @@ def imprimir_vencedor(x):
 
     imprimir_resultado_formatado(x)
     print(f"\nVencedor é o jogador {jogador}")
-    reiniciar_game()
 
 
 def imprimir_resultado_formatado(x):
@@ -220,4 +221,3 @@ def reiniciar_game():
 
 limpar_terminal()
 pedir_usuario_jogadas()
-
